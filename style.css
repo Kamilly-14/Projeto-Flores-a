@@ -1,0 +1,669 @@
+:root {
+    --primary-color: #388E3C; /* Um verde um pouco mais escuro e profissional */
+    --secondary-color: #6c757d; /* Mantido o cinza */
+    --text-color: #333333;
+    --heading-color: #1a1a1a;
+    --background-light: #faf8f8;
+    --background-dark: #212529;
+    --container-max-width: 1200px;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+
+    /* NOVAS VARIAVEIS (ou ajuste existentes) */
+    --header-bg-color: #ffffff; /* O verde que você já usa no header */
+    --header-text-color: #000000; /* Branco para o texto do header */
+    --accent-color: #FFC107; /* Amarelo da banana/sol para destaque */
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Para rolagem suave para as seções */
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #fff;
+    /* MUDANÇA APLICADA: padding-top para compensar a altura do header fixo */
+    padding-top: 120px; /* Seu header tem 80px (logo) + 20px (padding-top) + 20px (padding-bottom) = 120px */
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* Títulos */
+h1, h2, h3 {
+    font-family: var(--font-primary);
+    color: var(--heading-color);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3.5em; /* Ajuste conforme o layout da Bom Futuro */
+    font-weight: 700;
+}
+
+h2.section-title {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-description {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botões */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2E7D32; /* Um verde um pouco mais escuro para o hover do primary */
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.btn-link:hover {
+    color: #2E7D32; /* Verde mais escuro para o hover do link */
+}
+
+/* Header */
+header {
+    /* MUDANÇA APLICADA: position: fixed para garantir que o header fique travado no topo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-bg-color); /* Usando a nova variável de cor para o fundo do header */
+    padding: 20px 0;
+    /* MUDANÇA APLICADA: Corrigido o box-shadow e aplicada cor adequada */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidade */
+    z-index: 1000;   /* Garante que o cabeçalho fique acima de outros elementos */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+    /* MUDANÇA APLICADA: Adiciona cor geral para texto no header */
+    color: var(--header-text-color);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    height: 80px; /* Ajuste o tamanho do logo */
+}
+
+header .main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header .main-nav ul li {
+    margin-left: 30px;
+}
+
+header .main-nav ul li a {
+    text-decoration: none;
+    /* MUDANÇA APLICADA: Cor dos links do menu: BRANCO */
+    color: var(--header-text-color);
+    font-weight: 600;
+    font-family: var(--font-primary);
+    transition: color 0.3s ease;
+}
+
+header .main-nav ul li a:hover {
+    /* MUDANÇA APLICADA: Cor ao passar o mouse: AMARELO */
+    color: var(--accent-color);
+}
+
+/* Adiciona margem à direita do link "Contato" para separá-lo do botão */
+header .main-nav ul li:last-child a {
+    margin-right: 25px; /* Ajuste este valor conforme necessário (ex: 20px, 30px) */
+}
+
+.header-btn {
+    padding: 10px 20px; /* Um pouco menor que os botões Hero */
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('image/hero-background.jpg') no-repeat center center/cover; /* Adicione uma imagem de fundo impactante aqui */
+    color: #fff;
+    text-align: center;
+    padding: 150px 0;
+    height: 100vh; /* Ajuste para preencher a tela */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1; /* Para garantir que o texto fique acima de sobreposições */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sobreposição escura para o texto se destacar */
+    z-index: -1;
+}
+
+.hero-section h1 {
+    font-size: 4.5em; /* Maior para impacto */
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.hero-section .hero-btn {
+    margin: 0 10px;
+}
+
+/* Content Sections */
+.content-section {
+    padding: 80px 0;
+}
+
+.bg-light-gray {
+    background-color: var(--background-light);
+}
+
+.grid-2-cols, .grid-2-cols-reversed {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.grid-2-cols-reversed {
+    grid-template-areas: "image text"; /* Define a ordem visual */
+}
+
+.grid-2-cols-reversed .image-content {
+    grid-area: image;
+}
+
+.grid-2-cols-reversed .text-content {
+    grid-area: text;
+}
+
+
+.text-content ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.text-content ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.text-content ul li i {
+    color: var(--primary-color); /* Agora será verde */
+    margin-right: 10px;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Solution Cards Grid */
+.solution-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.solution-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solution-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.solution-icon {
+    font-size: 3.5em;
+    color: var(--primary-color); /* Agora será verde */
+    margin-bottom: 20px;
+}
+
+.solution-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.solution-card p {
+    margin-bottom: 20px;
+}
+
+/* CTA Section */
+.cta-section {
+    /* MUDANÇA APLICADA: Agora será verde, usando a variável */
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.cta-section h2 {
+    color: #fff;
+    font-size: 2.8em;
+}
+
+.cta-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-section .btn-primary {
+    background-color: #fff;
+    /* MUDANÇA APLICADA: Agora o texto do botão será verde */
+    color: var(--primary-color);
+}
+
+.cta-section .btn-primary:hover {
+    background-color: #f0f0f0;
+}
+
+/* Partners Grid */
+.partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.partners-grid img {
+    max-width: 150px; /* Ajuste o tamanho dos logos dos parceiros */
+    height: auto;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+/* News Grid */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.news-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px; /* Altura fixa para as imagens de notícia */
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 25px;
+}
+
+.news-content h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.news-content h3 a {
+    text-decoration: none;
+    color: var(--heading-color);
+    transition: color 0.3s ease;
+}
+
+.news-content h3 a:hover {
+    color: var(--primary-color); /* Agora será verde */
+}
+
+.news-content .date {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--background-dark);
+    /* MUDANÇA APLICADA: Garante que o texto principal seja branco */
+    color: #fff;
+    padding: 80px 0;
+}
+
+.contact-section .section-title,
+.contact-section .section-description {
+    /* MUDANÇA APLICADA: Títulos e descrições brancas neste fundo */
+    color: #fff;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Info à esquerda, Formulário à direita */
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.contact-info h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    /* MUDANÇA APLICADA: Título da info de contato branco */
+    color: #fff;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    /* MUDANÇA APLICADA: Texto da info de contato branco */
+    color: #fff;
+}
+
+.contact-info p i {
+    margin-right: 15px;
+    color: var(--primary-color); /* Agora será verde */
+    font-size: 1.3em;
+}
+
+.social-links {
+    margin-top: 30px;
+}
+
+.social-links a {
+    display: inline-block;
+    /* MUDANÇA APLICADA: Ícones sociais brancos */
+    color: #fff;
+    font-size: 1.8em;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    /* MUDANÇA APLICADA: Ícones sociais amarelos no hover */
+    color: var(--accent-color);
+}
+
+.contact-form h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    /* MUDANÇA APLICADA: Título do formulário branco */
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333; /* Fundo mais escuro para os campos */
+    color: #fff;
+    font-size: 1em;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #ccc;
+}
+
+.contact-form .btn-primary {
+    width: auto; /* Botão não ocupa a largura total */
+    margin-top: 20px;
+    padding: 15px 40px;
+    background-color: var(--primary-color); /* Agora será verde */
+}
+
+.contact-form .btn-primary:hover {
+    background-color: #2E7D32; /* Verde mais escuro para o hover do botão */
+}
+
+.map-container {
+    margin-top: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    padding: 50px 0;
+    text-align: center;
+}
+
+footer .footer-links ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+footer .footer-links ul li {
+    margin: 0 15px;
+}
+
+footer .footer-links ul li a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+footer .footer-links ul li a:hover {
+    color: var(--primary-color); /* Agora será verde */
+}
+
+footer .footer-info p {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+/*
+    =============================================
+    MEDIA QUERIES PARA RESPONSIVIDADE (MOBILE FIRST)
+    =============================================
+*/
+
+/* Para tablets e telas menores que 992px */
+@media (max-width: 992px) {
+    .grid-2-cols,
+    .grid-2-cols-reversed,
+    .contact-grid {
+        grid-template-columns: 1fr; /* Colunas empilham em telas menores */
+    }
+
+    .grid-2-cols-reversed {
+        grid-template-areas: none; /* Remove a ordem definida para reverter */
+    }
+
+    header .main-nav {
+        display: none; /* Oculta a navegação principal para mobile, você precisará de um menu hamburguer com JS */
+    }
+
+    header .header-btn {
+        margin-left: auto; /* Alinha o botão à direita se o menu sumir */
+    }
+
+    .hero-section h1 {
+        font-size: 3em;
+    }
+
+    .hero-section h2 {
+        font-size: 1.5em;
+    }
+
+    .solution-cards-grid,
+    .news-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .contact-grid {
+        gap: 40px;
+    }
+}
+
+/* Para smartphones e telas menores que 768px */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2.section-title {
+        font-size: 2em;
+    }
+
+    .content-section,
+    .cta-section,
+    .contact-section,
+    footer {
+        padding: 60px 0; /* Menos padding em telas pequenas */
+    }
+
+    header .logo img {
+        height: 50px;
+    }
+
+    .hero-section {
+        padding: 100px 0;
+    }
+
+    .hero-section .hero-btn {
+        display: block; /* Botões empilham em telas pequenas */
+        margin: 15px auto;
+        width: 80%; /* Ocupa mais largura */
+    }
+
+    .partners-grid {
+        gap: 20px;
+    }
+
+    .partners-grid img {
+        max-width: 100px;
+    }
+
+    .footer-links ul {
+        flex-direction: column; /* Links do footer empilham */
+    }
+
+    footer .footer-links ul li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Para smartphones muito pequenos */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2.section-title {
+        font-size: 1.8em;
+    }
+
+    .solution-cards-grid,
+    .news-grid {
+        grid-template-columns: 1fr; /* Apenas uma coluna em telas muito pequenas */
+    }
+}
